@@ -13,6 +13,10 @@ const sphereMaterial = new THREE.MeshBasicMaterial({ color: 'red' });
 const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
 sphere.position.x = -1;
 
+//Adicionando o AxesHelper
+const axesHelper = new THREE.AxesHelper();
+scene.add(axesHelper);
+
 //Criando um grupo e adicionando meshes
 const group = new THREE.Group();
 group.add(cube, sphere);
