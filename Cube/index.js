@@ -13,8 +13,10 @@ const sphereGeometry = new THREE.SphereGeometry(15, 32, 16);
 const sphereMaterial = new THREE.MeshBasicMaterial({ color: 'red' });
 const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
 
-//Criando um grupo
+//Criando um grupo e adicionando meshes
 const group = new THREE.Group();
+group.add(cube, sphere);
+scene.add(group);
 
 //Criando uma câmera
 const aspect = {
@@ -23,8 +25,6 @@ const aspect = {
 }
 const camera = new THREE.PerspectiveCamera(45, aspect.width / aspect.height, 1, 1000 ); //FOV, ASPECT RATIO, NEAR, FAR
 scene.add(camera);
-
-//Adicionando meshes via grupo
 
 //Afastando a camera
 camera.position.z = 5;
