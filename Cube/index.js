@@ -2,10 +2,10 @@
 const scene = new THREE.Scene();
 
 //Criando um objeto/mesh
-const geometry = new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial({ color: 'blue' })
-const cube = new THREE.Mesh(geometry, material);
-cube.rotation.y = Math.PI / 4 * -0.25; //Rotação é dado em Euler.
+const cubeGeometry = new THREE.BoxGeometry();
+const cubeMaterial = new THREE.MeshBasicMaterial({ color: 'blue' })
+const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+cube.rotation.y = Math.PI / 4 * -0.5; //Rotação é dado em Euler //Valores negativos são sentido horário
 scene.add(cube);
 
 //Criando uma câmera
