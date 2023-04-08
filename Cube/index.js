@@ -7,13 +7,11 @@ const cubeMaterial = new THREE.MeshBasicMaterial({ color: 'blue' });
 const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
 cube.rotation.y = Math.PI / 4 * -0.5; //Rotação é dado em Euler //Valores negativos são sentido horário
 cube.position.x = 1;
-scene.add(cube);
 
 //Criando um novo mesh
 const sphereGeometry = new THREE.SphereGeometry(15, 32, 16);
 const sphereMaterial = new THREE.MeshBasicMaterial({ color: 'red' });
 const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-scene.add(sphere);
 
 //Criando um grupo
 const group = new THREE.Group();
@@ -25,6 +23,8 @@ const aspect = {
 }
 const camera = new THREE.PerspectiveCamera(45, aspect.width / aspect.height, 1, 1000 ); //FOV, ASPECT RATIO, NEAR, FAR
 scene.add(camera);
+
+//Adicionando meshes via grupo
 
 //Afastando a camera
 camera.position.z = 5;
