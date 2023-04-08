@@ -9,7 +9,7 @@ cube.rotation.y = Math.PI / 4 * -0.5; //Rotação é dado em Euler //Valores neg
 cube.position.x = 1;
 
 //Criando um novo mesh
-const sphereGeometry = new THREE.SphereGeometry(15, 32, 16);
+const sphereGeometry = new THREE.SphereGeometry();
 const sphereMaterial = new THREE.MeshBasicMaterial({ color: 'red' });
 const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
 
