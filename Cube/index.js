@@ -5,13 +5,13 @@ const scene = new THREE.Scene();
 const cubeGeometry = new THREE.BoxGeometry();
 const cubeMaterial = new THREE.MeshBasicMaterial({ color: 'blue' });
 const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-cube.rotation.y = Math.PI / 4 * -0.5; //Rotação é dado em Euler //Valores negativos são sentido horário
 cube.position.x = 1;
 
 //Criando um novo mesh
-const sphereGeometry = new THREE.SphereGeometry();
+const sphereGeometry = new THREE.SphereGeometry(0.6);
 const sphereMaterial = new THREE.MeshBasicMaterial({ color: 'red' });
 const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+sphere.position.x = -1;
 
 //Criando um grupo e adicionando meshes
 const group = new THREE.Group();
