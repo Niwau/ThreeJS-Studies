@@ -15,6 +15,9 @@ const sphereMaterial = new THREE.MeshBasicMaterial({ color: 'red' });
 const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
 scene.add(sphere);
 
+//Criando um grupo
+const group = new THREE.Group();
+
 //Criando uma câmera
 const aspect = {
   width: window.innerWidth,
