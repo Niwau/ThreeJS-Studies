@@ -14,7 +14,7 @@ const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
 sphere.position.x = -1;
 
 //Adicionando o AxesHelper
-const axesHelper = new THREE.AxesHelper();
+const axesHelper = new THREE.AxesHelper(1.5);
 scene.add(axesHelper);
 
 //Criando um grupo e adicionando meshes
