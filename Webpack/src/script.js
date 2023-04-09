@@ -16,20 +16,13 @@ const aspect = {
   height: window.innerHeight,
 }
 
-const { 
-  width,
-  height 
-} = aspect;
-
-const aspectRatio = width / height;
-
-const camera = new THREE.PerspectiveCamera(75, aspectRatio);
+const camera = new THREE.PerspectiveCamera(75, aspect.width / aspect.height);
 camera.position.z = 3;
 scene.add(camera);
 
 const canvas = document.getElementById('canvas');
 const renderer = new THREE.WebGLRenderer({ canvas });
-renderer.setSize(width, height);
+renderer.setSize(aspect.width, aspect.height);
 
 //Nos fornece métodos para manipular o tempo
 const clock = new THREE.Clock()
@@ -37,13 +30,20 @@ const clock = new THREE.Clock()
 //Animação baseada em FPS resultará em diferentes resultados, use o tempo passado para unificar os resultados em dispositivos com FPS diferente.
 const animate = () => {
   const time = clock.getElapsedTime();
+  mesh.rotation.y = time;
   renderer.render(scene, camera);
   window.requestAnimationFrame(animate);
 }
 animate();
 
-//Usando gsap para performar animações
-//Cada linha gsap é um requestAnimationFrame
-gsap.to(mesh.position, { duration: 1, delay: 1, x: 2 });
-gsap.to(mesh.position, { duration: 1, delay: 2, x: -2 });
-gsap.to(mesh.position, { duration: 1, delay: 3, x: 0 });
+//Aplicando responsividade
+window.addEventListener("resize", () => {
+  aspect.width = window.innerWidth;
+  aspect.height = window.innerHeight;
+  
+  camera.aspect = aspect.width / aspect.height;
+  camera.updateProjectionMatrix()
+  
+  renderer.setSize(aspect.width, aspect.height)
+
+})
