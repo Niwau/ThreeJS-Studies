@@ -45,5 +45,5 @@ window.addEventListener("resize", () => {
   camera.updateProjectionMatrix()
   
   renderer.setSize(aspect.width, aspect.height)
-
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 })
