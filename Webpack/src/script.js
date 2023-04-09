@@ -27,12 +27,16 @@ renderer.setSize(aspect.width, aspect.height);
 //Nos fornece métodos para manipular o tempo
 const clock = new THREE.Clock()
 
+//OrbitControls
+const controls = new OrbitControls(camera, canvas);
+controls.enableDamping = true; //Makes rotation smoother
+
 //Animação baseada em FPS resultará em diferentes resultados, use o tempo passado para unificar os resultados em dispositivos com FPS diferente.
 const animate = () => {
   const time = clock.getElapsedTime();
-  mesh.rotation.y = time;
   renderer.render(scene, camera);
   window.requestAnimationFrame(animate);
+  controls.update()
 }
 animate();
 
@@ -40,13 +44,10 @@ animate();
 window.addEventListener("resize", () => {
   aspect.width = window.innerWidth;
   aspect.height = window.innerHeight;
-  
+
   camera.aspect = aspect.width / aspect.height;
   camera.updateProjectionMatrix()
   
   renderer.setSize(aspect.width, aspect.height)
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 })
-
-//OrbitControls
-const controls = new OrbitControls(camera, canvas);
