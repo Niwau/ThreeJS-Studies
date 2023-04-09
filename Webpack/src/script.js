@@ -36,7 +36,8 @@ const clock = new THREE.Clock()
 //Animação baseada em FPS resultará em diferentes resultados, use o tempo passado para unificar os resultados em dispositivos com FPS diferente.
 const animate = () => {
   const time = clock.getElapsedTime();
-  mesh.rotation.y = time;
+  mesh.position.x = Math.sin(time);
+  mesh.rotation.x = time;
   renderer.render(scene, camera);
   window.requestAnimationFrame(animate);
 }
