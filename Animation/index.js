@@ -28,6 +28,7 @@ const canvas = document.getElementById('canvas');
 const renderer = new THREE.WebGLRenderer({ canvas });
 renderer.setSize(width, height);
 
+//Nos fornece métodos para manipular o tempo
 const clock = new THREE.Clock()
 
 //Animação baseada em FPS resultará em diferentes resultados, use o tempo passado para unificar os resultados em dispositivos com FPS diferente.
