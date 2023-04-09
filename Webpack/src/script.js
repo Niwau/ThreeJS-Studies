@@ -1,6 +1,7 @@
 //Scene, Mesh, Camera, Renderer
 import './style.css';
 import * as THREE from 'three';
+import gsap from 'gsap';
 
 const scene = new THREE.Scene();
 
@@ -36,9 +37,13 @@ const clock = new THREE.Clock()
 //Animação baseada em FPS resultará em diferentes resultados, use o tempo passado para unificar os resultados em dispositivos com FPS diferente.
 const animate = () => {
   const time = clock.getElapsedTime();
-  mesh.position.x = Math.sin(time);
-  mesh.rotation.x = time;
   renderer.render(scene, camera);
   window.requestAnimationFrame(animate);
 }
 animate();
+
+//Usando gsap para performar animações
+//Cada linha gsap é um requestAnimationFrame
+gsap.to(mesh.position, { duration: 1, delay: 1, x: 2 });
+gsap.to(mesh.position, { duration: 1, delay: 2, x: -2 });
+gsap.to(mesh.position, { duration: 1, delay: 3, x: 0 });
