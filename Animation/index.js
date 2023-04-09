@@ -28,8 +28,12 @@ const canvas = document.getElementById('canvas');
 const renderer = new THREE.WebGLRenderer({ canvas });
 renderer.setSize(width, height);
 
+const clock = new THREE.Clock()
+
+//Animação baseada em FPS resultará em diferentes resultados, use o tempo passado para unificar os resultados em dispositivos com FPS diferente.
 const animate = () => {
-  mesh.rotation.y += 0.1;
+  const time = clock.getElapsedTime();
+  mesh.rotation.y = time;
   renderer.render(scene, camera);
   window.requestAnimationFrame(animate);
 }
