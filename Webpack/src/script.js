@@ -1,7 +1,7 @@
 //Scene, Mesh, Camera, Renderer
 import './style.css';
 import * as THREE from 'three';
-import gsap from 'gsap';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
 const scene = new THREE.Scene();
 
@@ -47,3 +47,6 @@ window.addEventListener("resize", () => {
   renderer.setSize(aspect.width, aspect.height)
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 })
+
+//OrbitControls
+const controls = new OrbitControls(camera, canvas);
