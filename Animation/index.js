@@ -27,4 +27,10 @@ scene.add(camera);
 const canvas = document.getElementById('canvas');
 const renderer = new THREE.WebGLRenderer({ canvas });
 renderer.setSize(width, height);
-renderer.render(scene, camera);
+
+const animate = () => {
+  mesh.rotation.y += 0.1;
+  renderer.render(scene, camera);
+  window.requestAnimationFrame(animate);
+}
+animate();
